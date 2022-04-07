@@ -1,7 +1,7 @@
 import { Avatar } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
-import { AccessTime, Search } from "@mui/icons-material";
+import { AccessTime, HelpOutline, Search } from "@mui/icons-material";
 
 function Header() {
   const HeaderContainer = styled.div`
@@ -21,31 +21,59 @@ function Header() {
     margin-left: 20px;
 
     > .MuiSvgIcon-root {
-        margin-left: auto;
-        margin-right: 30px;
+      margin-left: auto;
+      margin-right: 30px;
     }
   `;
-  const HeaderRight = styled.div`
-  `;
   const HeaderSearch = styled.div`
+    flex: 0.4;
+    opacity: 1;
+    border-radius: 6px;
+    background-color: #421f44;
+    text-align: center;
+    display: flex;
+    padding: 0 50px;
+    color: grey;
+    border: 1px gray solid;
+
+    > input {
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      min-width: 30vw;
+      outline: 0;
+      color: white;
+    }
   `;
   const HeaderAvatar = styled(Avatar)`
     cursor: pointer;
     :hover {
-        opacity: 0.8;
+      opacity: 0.8;
+    }
+  `;
+  const HeaderRight = styled.div`
+    flex: 0.3;
+    display: flex;
+    align-items: flex-end;
+
+    > .MuiSvgIcon-root {
+      margin-left: auto;
+      margin-right: 20px;
     }
   `;
   return (
     <HeaderContainer>
       <HeaderLeft>
-          <HeaderAvatar/>
-          <AccessTime />
+        <HeaderAvatar />
+        <AccessTime />
       </HeaderLeft>
       <HeaderSearch>
-      <input type="text" placeholder="Search"/>
-          <Search/>
+        <Search />
+        <input type="text" placeholder="Search" />
       </HeaderSearch>
-      <HeaderRight></HeaderRight>
+      <HeaderRight>
+        <HelpOutline />
+      </HeaderRight>
     </HeaderContainer>
   );
 }
